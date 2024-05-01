@@ -1,5 +1,7 @@
 package com.manui.myapplication.rest
 
+import com.manui.myapplication.model.ApiError
+import com.manui.myapplication.model.Team
 import com.manui.myapplication.rest.networkadapter.NetworkResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Body
@@ -13,18 +15,11 @@ import retrofit2.http.Query
 
 interface RestInterface {
 
-//    @POST("api/Auth")
-//    suspend fun login(
-//        @Body access: Access
-//    ): NetworkResponse<String, ApiError>
-//
-//
-//    @GET("api/Cargo/GetCargoByDateWithClaimsAsync/{year}/{month}/{day}")
-//    suspend fun getMain(
-//        @Path("year") year: Int,
-//        @Path("month") month: Int,
-//        @Path("day") day: Int
-//    ): NetworkResponse<ArrayList<Position>, ApiError>
+
+    @GET("teams")
+    suspend fun loadTeams(
+    ): NetworkResponse<ArrayList<Team>, ApiError>
+
 //
 //
 //    @GET("api/CargoDetail/GetCargoDetailByIdCargoAppControllerAsync/{id}")
