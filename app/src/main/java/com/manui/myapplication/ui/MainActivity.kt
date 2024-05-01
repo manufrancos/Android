@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        //setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         val appBarConfiguration : AppBarConfiguration = AppBarConfiguration(toolbarTopLevelDestinations().toSet())
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration)
     }
@@ -101,10 +101,11 @@ class MainActivity : AppCompatActivity() {
         R.id.splashFragment
     )
 
-    fun toolbarBack(){
-        /*toolbar.setNavigationOnClickListener {
+    fun toolbarBack() {
+        binding.toolbar.setNavigationOnClickListener {
             var current: Boolean = false
-        }*/
+        }
     }
+
 
 }

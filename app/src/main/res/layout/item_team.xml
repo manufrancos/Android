@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="item"
+            type="com.manui.myapplication.model.Team" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,8 +22,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:padding="6dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="6dp">
 
 
             <TextView
@@ -20,18 +31,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ID Equipo: "
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent
-"               />
+"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
                 android:id="@+id/idEquipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{item.idTeam.toString()}"
                 app:layout_constraintStart_toEndOf="@id/txtId"
                 app:layout_constraintTop_toTopOf="@id/txtId"
-                tools:text="5"/>
+                tools:text="5" />
 
 
             <TextView
@@ -39,19 +51,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre Equipo: "
-                app:layout_constraintTop_toBottomOf="@+id/txtId"
                 app:layout_constraintStart_toStartOf="parent
-"               />
+"
+                app:layout_constraintTop_toBottomOf="@+id/txtId" />
 
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{item.name}"
                 app:layout_constraintStart_toEndOf="@id/txtName"
                 app:layout_constraintTop_toTopOf="@id/txtName"
-                tools:text="Mallorca"/>
-
+                tools:text="Mallorca" />
 
 
             <TextView
@@ -59,31 +71,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ciudad: "
-                app:layout_constraintTop_toBottomOf="@+id/txtName"
                 app:layout_constraintStart_toStartOf="parent
-"               />
+"
+                app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
 
             <TextView
                 android:id="@+id/city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{item.city}"
                 app:layout_constraintStart_toEndOf="@id/txtCity"
                 app:layout_constraintTop_toTopOf="@id/txtCity"
-                tools:text="Ibiza"/>
+                tools:text="Ibiza" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-    <data>
-
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
-
-    </data>
 
 
 </layout>
