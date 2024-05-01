@@ -20,12 +20,22 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "targetEnvironment"
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        development {
+            dimension "targetEnvironment"
+            buildConfigField 'String', 'BASE_URL', '"http://localhost:8080/"'
+        }
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -33,6 +43,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures.dataBinding = true
 }
 
 dependencies {
