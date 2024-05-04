@@ -15,8 +15,8 @@ class TeamViewModel(private val repo: MainRepository =  MainRepository.getInstan
 
     val teams = MutableLiveData<ArrayList<Team>>()
 
-    init {
-    }
+    val teamName = MutableLiveData<String>()
+    val teamCity = MutableLiveData<String>()
 
     fun loadTeams(){
         response.value = NetworkResponse.Loading
@@ -24,6 +24,23 @@ class TeamViewModel(private val repo: MainRepository =  MainRepository.getInstan
             val resp = repo.loadTeams()
             if(resp is NetworkResponse.Success){
                 teams.postValue(resp.body)
+                status.postValue(REST_CUD.SUCCESS)
+            }else{
+                status.postValue(REST_CUD.FAIL)
+
+            }
+            response.postValue(resp)
+        }
+    }
+
+    fun createTeam(){
+        response.value = NetworkResponse.Loading
+        viewModelScope.launch(Dispatchers.IO) {
+            val team = Team()
+            team.name = teamName.value
+            team.city = teamCity.value
+            val resp = repo.createTeam(team)
+            if(resp is NetworkResponse.Success){
                 status.postValue(REST_CUD.SUCCESS)
             }else{
                 status.postValue(REST_CUD.FAIL)

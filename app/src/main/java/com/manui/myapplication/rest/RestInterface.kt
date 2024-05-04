@@ -20,6 +20,11 @@ interface RestInterface {
     suspend fun loadTeams(
     ): NetworkResponse<ArrayList<Team>, ApiError>
 
+        @POST("team")
+    suspend fun createTeam(
+        @Body team: Team
+    ): NetworkResponse<Team, ApiError>
+
 //
 //
 //    @GET("api/CargoDetail/GetCargoDetailByIdCargoAppControllerAsync/{id}")

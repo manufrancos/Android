@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        tools:layout="@layout/fragment_splash"
         android:name="com.manui.myapplication.ui.splashfragment.SplashFragment"
-        android:label="SplashFragment" >
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_teamFragment"
             app:destination="@id/teamFragment" />
@@ -17,9 +17,17 @@
 
     <fragment
         android:id="@+id/teamFragment"
-        tools:layout="@layout/fragment_team"
         android:name="com.manui.myapplication.ui.teams.TeamFragment"
-        android:label="Equipos" >
+        android:label="Equipos"
+        tools:layout="@layout/fragment_team">
+        <action
+            android:id="@+id/action_teamFragment_to_createTeamFragment"
+            app:destination="@id/temFragmentCreate" />
     </fragment>
+    <fragment
+        android:id="@+id/temFragmentCreate"
+        android:name="com.manui.myapplication.ui.teams.create.TeamCreateFragment"
+        android:label="fragment_team_create"
+        tools:layout="@layout/fragment_team_create" />
 
 </navigation>

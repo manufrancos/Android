@@ -1,37 +1,33 @@
-package com.manui.myapplication.ui.teams
+package com.manui.myapplication.ui.teams.create
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.manui.myapplication.R
 import com.manui.myapplication.databinding.FragmentTeamBinding
+import com.manui.myapplication.databinding.FragmentTeamCreateBinding
+import com.manui.myapplication.ui.teams.TeamAdapter
+import com.manui.myapplication.ui.teams.TeamFragmentDirections
+import com.manui.myapplication.ui.teams.TeamViewModel
 
 
-class TeamFragment : Fragment() {
+class TeamCreateFragment : Fragment() {
 
-    private lateinit var binding: FragmentTeamBinding
+    private lateinit var binding: FragmentTeamCreateBinding
     private val vm: TeamViewModel by viewModels()
-
-    lateinit var teamAdapter: TeamAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentTeamBinding.inflate(inflater, container, false).apply {
+    ): View {
+        binding = FragmentTeamCreateBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm
-            vm.loadTeams()
 
-            teamAdapter = TeamAdapter()
-            list.adapter = teamAdapter
         }
 
         subscribeUI()
@@ -40,12 +36,8 @@ class TeamFragment : Fragment() {
     }
 
     fun subscribeUI() {
-        vm.teams.observe(viewLifecycleOwner, Observer {
-            teamAdapter.submitList(it)
-        })
-
         binding.addTeam.setOnClickListener {
-            findNavController().navigate(TeamFragmentDirections.actionTeamFragmentToCreateTeamFragment())
+            vm.createTeam()
         }
     }
 
