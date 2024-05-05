@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txtCity"
                 app:layout_constraintTop_toTopOf="@id/txtCity"
-                android:text="@{item.birthday.toString()}"
+                dateWithFormatText="@{item.birthday}"
                 tools:text=" 23/12/1999"/>
 
 

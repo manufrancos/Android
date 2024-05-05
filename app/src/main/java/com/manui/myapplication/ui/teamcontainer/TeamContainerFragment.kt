@@ -17,6 +17,7 @@ import com.manui.myapplication.databinding.FragmentTeamContainerBinding
 class TeamContainerFragment : Fragment() {
 
     private lateinit var binding: FragmentTeamContainerBinding
+    private val args: TeamContainerFragmentArgs by navArgs()
 
     val tabs = arrayOf(
         "Jugadores",
@@ -30,7 +31,7 @@ class TeamContainerFragment : Fragment() {
         binding = FragmentTeamContainerBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
 
-            val adapter = ViewPagerAdapter(getParentFragmentManager(), lifecycle)
+            val adapter = ViewPagerAdapter(getParentFragmentManager(), lifecycle,args.idTeam)
             viewPager.adapter = adapter
 
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->

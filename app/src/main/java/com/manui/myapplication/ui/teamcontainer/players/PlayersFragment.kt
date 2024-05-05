@@ -20,7 +20,6 @@ class PlayersFragment : Fragment() {
 
     private lateinit var binding: FragmentPlayersBinding
     private val vm: PlayerViewModel by viewModels()
-    //private val args: PlayersFragmentArgs by navArgs()
 
     lateinit var adapter: PlayerAdapter
 
@@ -32,7 +31,8 @@ class PlayersFragment : Fragment() {
         binding = FragmentPlayersBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm
-            vm.loadPlayers(1)
+
+            vm.loadPlayers(requireArguments().getInt("idTeam"))
 
             adapter = PlayerAdapter()
             list.adapter = adapter
