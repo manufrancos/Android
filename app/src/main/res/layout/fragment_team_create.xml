@@ -34,7 +34,7 @@
                     android:layout_margin="16dp"
                     android:hint="Nombre Equipo"
                     android:maxLines="1"
-                    android:text="@{viewModel.teamName}"
+                    android:text="@={viewModel.teamName}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,7 @@
                     android:layout_margin="16dp"
                     android:hint="Nombre Ciudad"
                     android:maxLines="1"
-                    android:text="@{viewModel.teamCity}"
+                    android:text="@={viewModel.teamCity}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/teamName" />

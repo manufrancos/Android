@@ -98,12 +98,13 @@ class MainActivity : AppCompatActivity() {
     )
 
     private fun toolbarTopLevelDestinations() = listOf(
-        R.id.splashFragment
+        R.id.splashFragment,
+        R.id.teamFragment
     )
 
     fun toolbarBack() {
         binding.toolbar.setNavigationOnClickListener {
-            var current: Boolean = false
+            this.onBackPressed()
         }
     }
 

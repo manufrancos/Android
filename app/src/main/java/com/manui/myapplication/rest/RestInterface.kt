@@ -1,6 +1,7 @@
 package com.manui.myapplication.rest
 
 import com.manui.myapplication.model.ApiError
+import com.manui.myapplication.model.Player
 import com.manui.myapplication.model.Team
 import com.manui.myapplication.rest.networkadapter.NetworkResponse
 import okhttp3.MultipartBody
@@ -20,7 +21,13 @@ interface RestInterface {
     suspend fun loadTeams(
     ): NetworkResponse<ArrayList<Team>, ApiError>
 
-        @POST("team")
+    @GET("players")
+    suspend fun loadPlayers(
+        @Query("idTeam") idTeam: Int
+    ): NetworkResponse<ArrayList<Player>, ApiError>
+
+
+    @POST("team")
     suspend fun createTeam(
         @Body team: Team
     ): NetworkResponse<Team, ApiError>

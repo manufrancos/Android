@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="item"
+            type="com.manui.myapplication.model.Player" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +42,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txtId"
                 app:layout_constraintTop_toTopOf="@id/txtId"
+                android:text="@{item.idPlayer.toString()}"
                 tools:text="5"/>
 
 
@@ -50,6 +62,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txtName"
                 app:layout_constraintTop_toTopOf="@id/txtName"
+                android:text="@{item.name}"
                 tools:text="Ronaldo"/>
 
 
@@ -70,20 +83,12 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txtCity"
                 app:layout_constraintTop_toTopOf="@id/txtCity"
+                android:text="@{item.birthday.toString()}"
                 tools:text=" 23/12/1999"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-    <data>
-
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
-
-    </data>
-
 
 </layout>

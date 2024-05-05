@@ -25,5 +25,7 @@ class MainRepository : BaseRepository() {
     suspend fun loadTeams() = Rest.getAuth().loadTeams()
     suspend fun createTeam(team: Team) = Rest.getAuth().createTeam(team)
 
+    suspend fun loadPlayers(idTeam: Int) = Rest.getAuth().loadPlayers(idTeam)
+
 
 }

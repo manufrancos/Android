@@ -23,11 +23,31 @@
         <action
             android:id="@+id/action_teamFragment_to_createTeamFragment"
             app:destination="@id/temFragmentCreate" />
+        <action
+            android:id="@+id/action_teamFragment_to_teamContainerFragment"
+            app:destination="@id/teamContainerFragment" />
     </fragment>
     <fragment
         android:id="@+id/temFragmentCreate"
         android:name="com.manui.myapplication.ui.teams.create.TeamCreateFragment"
-        android:label="fragment_team_create"
+        android:label="Crear Equipo"
         tools:layout="@layout/fragment_team_create" />
+    <fragment
+        android:id="@+id/playersFragment"
+        tools:layout="@layout/fragment_players"
+        android:name="com.manui.myapplication.ui.teamcontainer.players.PlayersFragment"
+        android:label="Jugadores" >
+<!--        <argument-->
+<!--            android:name="idTeam"-->
+<!--            app:argType="integer" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/teamContainerFragment"
+        android:name="com.manui.myapplication.ui.teamcontainer.TeamContainerFragment"
+        android:label="Datos equipo" >
+        <argument
+            android:name="idTeam"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
