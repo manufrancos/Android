@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.manui.myapplication.databinding.FragmentMatchBinding
+import com.manui.myapplication.model.Match
 import com.manui.myapplication.ui.teamcontainer.TeamContainerFragmentDirections
 
 class MatchFragment : Fragment() {

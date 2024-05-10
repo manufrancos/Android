@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.manui.myapplication.databinding.FragmentPlayersBinding
 import com.manui.myapplication.databinding.FragmentTeamBinding
+import com.manui.myapplication.model.Match
+import com.manui.myapplication.model.Player
 import com.manui.myapplication.ui.teamcontainer.TeamContainerFragment
 import com.manui.myapplication.ui.teamcontainer.TeamContainerFragmentDirections
 import com.manui.myapplication.ui.teams.TeamAdapter
@@ -32,6 +34,7 @@ class PlayersFragment : Fragment() {
         binding = FragmentPlayersBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm
+            vm.playerCreate.postValue(Player())
 
             idTeam = requireArguments().getInt("idTeam")
             vm.loadPlayers(idTeam)

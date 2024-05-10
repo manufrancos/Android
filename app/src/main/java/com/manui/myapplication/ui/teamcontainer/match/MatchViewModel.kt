@@ -24,6 +24,7 @@ class MatchViewModel(private val repo: MainRepository =  MainRepository.getInsta
     val matchday = MutableLiveData<Date>()
 
     val createMatch = MutableLiveData<Match>()
+    val matchCreate = MutableLiveData<Match>()
 
     fun loadMatchs(idTeam: Int){
         response.value = NetworkResponse.Loading
@@ -55,7 +56,7 @@ class MatchViewModel(private val repo: MainRepository =  MainRepository.getInsta
             val resp = repo.createMatch(createMatch.value!!)
             if(resp is NetworkResponse.Success){
                 status.postValue(REST_CUD.SUCCESS)
-                //teamCreate.postValue(resp.body)
+                matchCreate.postValue(resp.body)
             }else{
                 status.postValue(REST_CUD.FAIL)
 

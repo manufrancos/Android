@@ -21,6 +21,9 @@ class PlayerViewModel(private val repo: MainRepository =  MainRepository.getInst
     val date = MutableLiveData<Date>()
 
     val playerCreate = MutableLiveData<Player>()
+    val playerReady = MutableLiveData<Player>()
+
+
 
     fun createPlayer(idTeam: Int){
         response.value = NetworkResponse.Loading
@@ -35,7 +38,7 @@ class PlayerViewModel(private val repo: MainRepository =  MainRepository.getInst
             val resp = repo.createPlayer(playerCreate.value!!)
             if(resp is NetworkResponse.Success){
                 status.postValue(REST_CUD.SUCCESS)
-                //teamCreate.postValue(resp.body)
+                playerReady.postValue(resp.body)
             }else{
                 status.postValue(REST_CUD.FAIL)
 

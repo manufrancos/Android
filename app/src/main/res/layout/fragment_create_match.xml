@@ -89,6 +89,7 @@
                 android:focusable="false"
                 android:clickable="true"
                 android:maxLines="1"
+                dateWithFormat="@{viewModel.matchday}"
                 app:layout_constraintTop_toBottomOf="@+id/awayGoals"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +97,7 @@
                 />
 
             <Button
-                android:id="@+id/addPlayer"
+                android:id="@+id/addMatch"
                 android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:layout_margin="16dp"

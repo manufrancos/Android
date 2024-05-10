@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.manui.myapplication.databinding.FragmentCreateMatchBinding
+import com.manui.myapplication.model.Match
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -27,6 +29,7 @@ class CreateMatchFragment : Fragment() ,DatePickerDialog.OnDateSetListener {
         binding = FragmentCreateMatchBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm
+            vm.createMatch.postValue(Match())
             date.setOnClickListener {
                 showDatePickerDialog()
             }
@@ -37,13 +40,17 @@ class CreateMatchFragment : Fragment() ,DatePickerDialog.OnDateSetListener {
     }
 
     fun subscribeUI() {
-        binding.addPlayer.setOnClickListener {
+        binding.addMatch.setOnClickListener {
             vm.createMatch()
         }
 
         binding.date.setOnClickListener {
             showDatePickerDialog()
         }
+
+        vm.matchCreate.observe(viewLifecycleOwner, Observer {
+            requireActivity().onBackPressed()
+        })
     }
 
     fun showDatePickerDialog(){
