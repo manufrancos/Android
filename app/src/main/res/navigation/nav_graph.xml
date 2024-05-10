@@ -36,11 +36,7 @@
         android:id="@+id/playersFragment"
         tools:layout="@layout/fragment_players"
         android:name="com.manui.myapplication.ui.teamcontainer.players.PlayersFragment"
-        android:label="Jugadores" >
-<!--        <argument-->
-<!--            android:name="idTeam"-->
-<!--            app:argType="integer" />-->
-    </fragment>
+        android:label="Jugadores" />
     <fragment
         android:id="@+id/teamContainerFragment"
         android:name="com.manui.myapplication.ui.teamcontainer.TeamContainerFragment"
@@ -48,6 +44,26 @@
         <argument
             android:name="idTeam"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_teamContainerFragment_to_createPlayerFragment"
+            app:destination="@id/createPlayerFragment" />
+        <action
+            android:id="@+id/action_teamContainerFragment_to_createMatchFragment"
+            app:destination="@id/createMatchFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/createPlayerFragment"
+        android:name="com.manui.myapplication.ui.teamcontainer.players.CreatePlayerFragment"
+        tools:layout="@layout/fragment_create_player"
+        android:label="CreatePlayerFragment" >
+        <argument
+            android:name="idTeam"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/createMatchFragment"
+        tools:layout="@layout/fragment_create_match"
+        android:name="com.manui.myapplication.ui.teamcontainer.match.CreateMatchFragment"
+        android:label="Crear partido" />
 
 </navigation>

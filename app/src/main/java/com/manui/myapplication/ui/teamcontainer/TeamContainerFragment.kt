@@ -31,7 +31,7 @@ class TeamContainerFragment : Fragment() {
         binding = FragmentTeamContainerBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
 
-            val adapter = ViewPagerAdapter(getParentFragmentManager(), lifecycle,args.idTeam)
+            val adapter = ViewPagerAdapter(childFragmentManager, lifecycle,args.idTeam)
             viewPager.adapter = adapter
 
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->

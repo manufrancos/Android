@@ -1,6 +1,7 @@
 package com.manui.myapplication.repository
 
 import com.manui.myapplication.base.BaseRepository
+import com.manui.myapplication.model.Player
 import com.manui.myapplication.model.Team
 import com.manui.myapplication.rest.Rest
 import okhttp3.MediaType.Companion.toMediaType
@@ -26,6 +27,9 @@ class MainRepository : BaseRepository() {
     suspend fun createTeam(team: Team) = Rest.getAuth().createTeam(team)
 
     suspend fun loadPlayers(idTeam: Int) = Rest.getAuth().loadPlayers(idTeam)
+    suspend fun loadMatch(idTeam: Int) = Rest.getAuth().loadMatch(idTeam)
+    suspend fun createPlayer(player: Player) = Rest.getAuth().createPlayer(player)
+
 
 
 }

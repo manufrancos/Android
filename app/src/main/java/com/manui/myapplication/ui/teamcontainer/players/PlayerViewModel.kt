@@ -10,27 +10,32 @@ import com.manui.myapplication.repository.MainRepository
 import com.manui.myapplication.rest.networkadapter.NetworkResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class PlayerViewModel(private val repo: MainRepository =  MainRepository.getInstance()): BaseViewModel() {
 
 
     val teams = MutableLiveData<ArrayList<Player>>()
 
-    val teamName = MutableLiveData<String>()
-    val teamCity = MutableLiveData<String>()
+    val playerName = MutableLiveData<String>()
+    val date = MutableLiveData<Date>()
 
-    val teamCreate = MutableLiveData<Team>()
+    val playerCreate = MutableLiveData<Player>()
 
-    fun createTeam(){
+    fun createPlayer(idTeam: Int){
         response.value = NetworkResponse.Loading
         viewModelScope.launch(Dispatchers.IO) {
-            val team = Team()
-            team.name = teamName.value
-            team.city = teamCity.value
-            val resp = repo.createTeam(team)
+            if(playerCreate.value == null){
+                playerCreate.value = Player()
+            }
+            playerCreate.value!!.name = playerName.value
+            playerCreate.value!!.birthday = date.value
+            playerCreate.value
+
+            val resp = repo.createPlayer(playerCreate.value!!)
             if(resp is NetworkResponse.Success){
                 status.postValue(REST_CUD.SUCCESS)
-                teamCreate.postValue(resp.body)
+                //teamCreate.postValue(resp.body)
             }else{
                 status.postValue(REST_CUD.FAIL)
 
@@ -51,6 +56,10 @@ class PlayerViewModel(private val repo: MainRepository =  MainRepository.getInst
             }
             response.postValue(resp)
         }
+    }
+
+    fun changeDateBirthDay(time: Date) {
+        date.postValue(time)
     }
 
 

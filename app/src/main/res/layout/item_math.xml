@@ -31,7 +31,8 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txtId"
                 app:layout_constraintTop_toTopOf="@id/txtId"
-                tools:text="5"/>
+                tools:text="5"
+                android:text="@{item.idMatch.toString()}"/>
 
 
 
@@ -54,7 +55,8 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Madrid"/>
+                    tools:text="Madrid"
+                    android:text="@{item.homeTeam.name}"/>
 
 
                 <TextView
@@ -70,7 +72,8 @@
                     android:id="@+id/goals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="3"/>
+                    tools:text="3"
+                    android:text="@{item.homeGoals.toString()}"/>
 
             </LinearLayout>
 
@@ -93,7 +96,8 @@
                     android:id="@+id/nameVisit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Barcelona"/>
+                    tools:text="Barcelona"
+                    android:text="@{item.awayTeam.name}"/>
 
 
                 <TextView
@@ -109,7 +113,8 @@
                     android:id="@+id/goalsVisit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="3"/>
+                    tools:text="3"
+                    android:text="@{item.awayGoals.toString()}"/>
 
             </LinearLayout>
 
@@ -130,7 +135,8 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txtCity"
                 app:layout_constraintTop_toTopOf="@id/txtCity"
-                tools:text=" 23/12/1999"/>
+                tools:text="23/12/1999"
+                dateWithFormat="@{item.matchday}"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -142,6 +148,9 @@
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
+        <variable
+            name="item"
+            type="com.manui.myapplication.model.Match" />
 
     </data>
 

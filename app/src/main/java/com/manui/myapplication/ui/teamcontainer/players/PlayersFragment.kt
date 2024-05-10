@@ -9,9 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.manui.myapplication.R
 import com.manui.myapplication.databinding.FragmentPlayersBinding
 import com.manui.myapplication.databinding.FragmentTeamBinding
+import com.manui.myapplication.ui.teamcontainer.TeamContainerFragment
+import com.manui.myapplication.ui.teamcontainer.TeamContainerFragmentDirections
 import com.manui.myapplication.ui.teams.TeamAdapter
 import com.manui.myapplication.ui.teams.TeamFragmentDirections
 import com.manui.myapplication.ui.teams.TeamViewModel
@@ -23,7 +24,7 @@ class PlayersFragment : Fragment() {
 
     lateinit var adapter: PlayerAdapter
 
-
+    var idTeam: Int = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +33,8 @@ class PlayersFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm
 
-            vm.loadPlayers(requireArguments().getInt("idTeam"))
+            idTeam = requireArguments().getInt("idTeam")
+            vm.loadPlayers(idTeam)
 
             adapter = PlayerAdapter()
             list.adapter = adapter
@@ -49,9 +51,9 @@ class PlayersFragment : Fragment() {
             adapter.submitList(it)
         })
 
-//        binding.addTeam.setOnClickListener {
-//            findNavController().navigate(TeamFragmentDirections.actionTeamFragmentToCreateTeamFragment())
-//        }
+        binding.addPlayer.setOnClickListener {
+            findNavController().navigate(TeamContainerFragmentDirections.actionTeamContainerFragmentToCreatePlayerFragment(idTeam))
+        }
     }
 
     fun onBackPressed() {

@@ -1,6 +1,7 @@
 package com.manui.myapplication.rest
 
 import com.manui.myapplication.model.ApiError
+import com.manui.myapplication.model.Match
 import com.manui.myapplication.model.Player
 import com.manui.myapplication.model.Team
 import com.manui.myapplication.rest.networkadapter.NetworkResponse
@@ -31,6 +32,17 @@ interface RestInterface {
     suspend fun createTeam(
         @Body team: Team
     ): NetworkResponse<Team, ApiError>
+
+    @GET("matches")
+    suspend fun loadMatch(
+        @Query("idTeam") idTeam: Int
+    ): NetworkResponse<ArrayList<Match>, ApiError>
+
+
+    @POST("player")
+    suspend fun createPlayer(
+        @Body player: Player
+    ): NetworkResponse<Player, ApiError>
 
 //
 //
