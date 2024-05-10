@@ -1,6 +1,7 @@
 package com.manui.myapplication.repository
 
 import com.manui.myapplication.base.BaseRepository
+import com.manui.myapplication.model.Match
 import com.manui.myapplication.model.Player
 import com.manui.myapplication.model.Team
 import com.manui.myapplication.rest.Rest
@@ -29,6 +30,7 @@ class MainRepository : BaseRepository() {
     suspend fun loadPlayers(idTeam: Int) = Rest.getAuth().loadPlayers(idTeam)
     suspend fun loadMatch(idTeam: Int) = Rest.getAuth().loadMatch(idTeam)
     suspend fun createPlayer(player: Player) = Rest.getAuth().createPlayer(player)
+    suspend fun createMatch(math: Match) = Rest.getAuth().createMatch(math)
 
 
 

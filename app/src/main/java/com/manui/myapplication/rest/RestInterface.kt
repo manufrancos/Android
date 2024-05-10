@@ -44,6 +44,11 @@ interface RestInterface {
         @Body player: Player
     ): NetworkResponse<Player, ApiError>
 
+    @POST("match")
+    suspend fun createMatch(
+        @Body match: Match
+    ): NetworkResponse<Match, ApiError>
+
 //
 //
 //    @GET("api/CargoDetail/GetCargoDetailByIdCargoAppControllerAsync/{id}")

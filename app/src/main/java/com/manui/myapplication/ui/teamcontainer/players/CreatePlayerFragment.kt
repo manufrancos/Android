@@ -52,7 +52,7 @@ class CreatePlayerFragment : Fragment() ,DatePickerDialog.OnDateSetListener {
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, day: Int) {
         val c = Calendar.getInstance()
         c.set(Calendar.YEAR, year)
-        c.set(Calendar.MONTH, year)
+        c.set(Calendar.MONTH, month)
         c.set(Calendar.DAY_OF_MONTH, day)
         vm.changeDateBirthDay(c.time)
     }

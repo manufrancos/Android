@@ -24,7 +24,7 @@ class TeamFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTeamBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm

@@ -47,6 +47,7 @@
                     android:focusable="false"
                     android:clickable="true"
                     android:maxLines="1"
+                    dateWithFormat="@{viewModel.date}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/playerName" />
